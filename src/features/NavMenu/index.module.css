@@ -1,0 +1,116 @@
+/* main ===================================================== */
+/* animation on click --------------------------------------- */
+#toggle:checked + .container_switch .switch {
+    background-color: inherit;
+}
+#toggle:checked + .container_switch .switch::before {
+    transform-origin: 0% 0%;
+    transform: rotate(45deg);
+    top: -12px;
+}
+#toggle:checked + .container_switch .switch::after {
+    transform-origin: 0% 0%;
+    transform: rotate(-45deg);
+    top: 12px;
+}
+
+/* switch --------------------------------------------------- */
+.container_switch {
+
+    display: none;
+
+    position: relative;
+    width: 35px;
+    height: 35px;
+
+    cursor: pointer;
+
+}
+
+.switch,
+.switch::before,
+.switch::after {
+
+    display: block;
+    transition: all .15s linear;
+
+    position: absolute;
+    left: 0;
+
+    height: 2px;
+    width: 100%;
+    background-color: var(--webchatui--color);
+
+}
+
+.switch {
+    top: 50%;
+}
+.switch::before {
+    content: "";
+    top: -10px;
+}
+.switch::after {
+    content: "";
+    top: 10px;
+}
+
+/* navigation ----------------------------------------------- */
+.nav {
+    height: 100%;
+}
+
+/* media ==================================================== */
+@media screen and (max-width: 1024px) {
+ 
+    .container_switch {
+        display: inline-block;
+        z-index: 3;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    #toggle:checked ~ .nav {
+
+        display: flex;
+        height: 100vh;
+        width: 100%;
+
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        z-index: 2;
+
+        background-color: var(--webchatui--background_color);
+
+    }
+
+    #toggle:checked ~ .nav > a {
+
+        display: inline-block;
+        width: 100%;
+        height: auto;
+
+        align-content: center;
+        text-align: center;
+
+        box-sizing: border-box;
+        padding: 30px 20px;
+
+        color: var(--webchatui--color);
+
+    }
+
+    body:has(#toggle:checked) {
+        overflow: hidden;
+    }
+
+}

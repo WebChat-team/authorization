@@ -1,0 +1,31 @@
+{
+  "name": "authorization",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node next_dev.js",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.3.0",
+    "@webchat_com/webchat_ui": "^0.0.39",
+    "classnames": "^2.5.1",
+    "moveton": "^1.0.9",
+    "next": "14.2.14",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-redux": "^9.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "^18",
+    "dotenv": "^16.4.5",
+    "env-cmd": "^10.1.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.14",
+    "typescript": "5.7.2"
+  }
+}

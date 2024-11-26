@@ -1,0 +1,12 @@
+.button {
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px 15px;
+
+}
+
+.icon {
+    font-size: 1.65em;
+}

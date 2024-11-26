@@ -1,0 +1,27 @@
+.container {
+
+    text-align: center;
+
+    margin: 30px auto;
+
+}
+
+.status_code {
+
+    font-size: 3em;
+
+    color: black;
+
+    background-color: var(--webchatui--background_color_active) ;
+
+}
+
+.title {
+
+    font-size: 2em;
+
+}
+
+.description {
+    font-size: 1.35em;
+}

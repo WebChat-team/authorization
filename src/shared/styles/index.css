@@ -1,0 +1,13 @@
+/* imports ================================================== */
+@import url("./normalize.css");
+@import url("./google_icons.css");
+
+/* main ===================================================== */
+body, html {
+
+    font-size: 16px;
+
+    color: var(--webchatui--color);
+    background-color: var(--webchatui--background_color_muted);
+
+}

@@ -1,0 +1,29 @@
+.main {
+
+    margin: 0 auto;
+
+    display: inline-block;
+    width: 100%;
+
+}
+
+@media screen and (min-width: 1600px) {
+    .main {
+        margin: 125px auto;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .main {
+        margin: 100px auto;
+    }
+}
+@media screen and (max-width: 1366px) {
+    .main {
+        margin: 75px auto;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .main {
+        margin: 50px auto;
+    }
+}

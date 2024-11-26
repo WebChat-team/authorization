@@ -1,0 +1,26 @@
+.logo {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: var(--webchatui--color);
+    text-decoration: none;
+
+    z-index: 3;
+
+}
+
+.logo_name {
+    display: inline;
+    font-size: 1.75em;
+    font-weight: 400;
+    margin: 0;
+}
+
+.logo_icon {
+
+    width: 45px;
+    height: 45px;
+
+}
