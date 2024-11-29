@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const { email, password } = await req.json();
 
     const response = await fetch(
-        process.env.BACKEND_URL + "/login.php",
+        "http://api.webchat.com:3000/user/login",
         {
             method: "POST",
             credentials: "include",
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     );
 
     if (response.ok) {
-        const responseRedirect = NextResponse.redirect(process.env.ACCOUNT_URL, { status: 302 });
+        const responseRedirect = NextResponse.redirect("http://webchat.com:3000/", { status: 302 });
         transferCookieToClient(responseRedirect.cookies, response.headers.getSetCookie());
         return responseRedirect;
     } else {

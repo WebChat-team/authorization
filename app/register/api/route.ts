@@ -8,12 +8,12 @@ export async function POST(req: Request) {
     const { email, password } = await req.json();
 
     const response = await fetch(
-        process.env.BACKEND_URL + "/register.php",
+        "http://api.webchat.com:3000/user/register",
         {
             method: "POST",
             credentials: "include",
             headers: {
-                "Content-Type": "Application/json",
+                "Content-Type": "application/json",
                 "Origin": "http://id.webchat.com"
             },
             body: JSON.stringify({ email, password })
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     );
 
     if (response.ok) {
-        const responseRedirect = NextResponse.redirect(process.env.ACCOUNT_URL);
+        const responseRedirect = NextResponse.redirect("http://webchat.com:3000/");
         transferCookieToClient(responseRedirect.cookies, response.headers.getSetCookie());
         return responseRedirect;
     } else {

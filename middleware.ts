@@ -28,7 +28,7 @@ export default async function middleware(request: NextRequest) {
     if (accessToken) {
 
         const responseAuthServer = await fetch(
-            process.env.BACKEND_URL + "/is_valid_access_token.php",
+            "http://api.webchat.com:3000/auth/is_valid_access_token.php",
             {
                 method: "GET",
                 headers: {
@@ -39,7 +39,7 @@ export default async function middleware(request: NextRequest) {
         );
 
         if (responseAuthServer.ok) {
-            return NextResponse.redirect(process.env.ACCOUNT_URL);
+            return NextResponse.redirect("http://webchat.com:3000/");
         }
 
     }
@@ -49,7 +49,7 @@ export default async function middleware(request: NextRequest) {
     if (refreshToken) {
 
         const responseAuthServer = await fetch(
-            process.env.BACKEND_URL + "/update_tokens.php",
+            "http://api.webchat.com:3000/auth/update_tokens.php",
             {
                 method: "POST",
                 headers: {
@@ -63,23 +63,17 @@ export default async function middleware(request: NextRequest) {
         );
 
         if (responseAuthServer.ok) {
-            const responseNext = NextResponse.redirect(process.env.ACCOUNT_URL);
+            const responseNext = NextResponse.redirect("http://webchat.com:3000/");
             transferCookieToClient(responseNext.cookies, responseAuthServer.headers.getSetCookie());
+            console.log(responseAuthServer.headers.getSetCookie());
             return responseNext;
         }
 
     }
 
-    // 3. проверка пути
-    if (allowedRoutes.includes(pathname)) {
-        const responseNext = NextResponse.next();
-        removeTokensInCookies(responseNext);
-        return responseNext;
-    } else {
-        const responseNext = NextResponse.next();
-        removeTokensInCookies(responseNext);
-        return responseNext;
-    }
+    const responseNext = NextResponse.next();
+    removeTokensInCookies(responseNext);
+    return responseNext;
 
 }
 

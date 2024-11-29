@@ -3,7 +3,7 @@
 // imports =================================================== //
 import styles from './index.module.css';
 import type { AppearanceProvider, InitailStateContext } from './types';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useLayoutEffect, useState } from 'react';
 
 // main ====================================================== //
 const AppearanceProviderContext = createContext<InitailStateContext>({
@@ -16,7 +16,7 @@ const AppearanceProvider: AppearanceProvider = ({ children }) => {
 
     const setTheme = (isLight: boolean) => setIsLightTheme(isLight);
 
-    useEffect(
+    useLayoutEffect(
         () => {
 
             if (window) {
